@@ -6,8 +6,13 @@ export async function init() {
     response.text().then(data => {
 
       const datos = JSON.parse(data)
+      const main = document.querySelector(".main");
+      const boton_nuevo = document.createElement("button");
+      boton_nuevo.textContent = "nuevo";
+      boton_nuevo.classList.add("boton_nuevo");
 
       datos.data.forEach(element => {
+        
         const tbody = document.querySelector(".tabla_body")
         const objeto = {
           id: element.id,
@@ -25,12 +30,15 @@ export async function init() {
 
         const boton_editar = document.createElement("button");
         const boton_eliminar = document.createElement("button");
+        
 
         boton_editar.textContent = "editar";
         boton_eliminar.textContent = "eliminar";
+        
 
         boton_editar.classList.add("botones");
         boton_eliminar.classList.add("botones");
+        
 
         id.classList.add("campo");
         nombre.classList.add("campo");
@@ -48,10 +56,16 @@ export async function init() {
           eliminar.append(boton_eliminar);
           fila.append(id, nombre, descripcion, editar, eliminar);
           tbody.append(fila)
+
         });
+        
       });
-
-
+      main.append(boton_nuevo)
+      boton_nuevo.addEventListener("click", e =>{
+        e.preventDefault();
+        e.preventDefault();
+        window.location.hash = "crearCategoria";
+      })
     })
   });
 }

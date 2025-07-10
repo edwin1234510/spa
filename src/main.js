@@ -1,5 +1,6 @@
 import * as CategoriaControlador from "./view/categoria/ControladorCategoria.js";
 import * as ProductoControlador from "./view/producto/ControladorProducto.js";
+import * as CrearCategoriaControlador from "./view/crearCategoria/ControladorCrearCategoria.js";
 
 
 function contenido() {
@@ -15,6 +16,11 @@ function contenido() {
       nombre: "producto",
       ruta: `./src/view/producto/index.html`,
       controlador: ProductoControlador.init
+    },
+    {
+      nombre: "crearCategoria",
+      ruta: `./src/view/crearCategoria/index.html`,
+      controlador: CrearCategoriaControlador.init
     }
   ]
   console.log(objeto)
