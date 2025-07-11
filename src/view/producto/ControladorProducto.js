@@ -4,9 +4,15 @@ export function init() {
   fetch("http://localhost:3000/api/productos").then(response => {
     response.text().then(data => {
 
-      const datos = JSON.parse(data)
+      console.log(data);
 
-      datos.data.forEach(element => {
+
+      const datos = JSON.parse(data)
+      const info = datos.data;
+
+
+
+      info.forEach(element => {
         const tbody = document.querySelector(".tabla_body")
         const objeto = {
           id: element.id,
